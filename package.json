@@ -4,7 +4,9 @@
   "description": "App de musica de una prueba tecnica",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest "
+    "test": "not defined",
+    "dev": "webpack serve --mode development --env developmet",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,24 @@
   "bugs": {
     "url": "https://github.com/wilmion/Foxbel-Music/issues"
   },
-  "homepage": "https://github.com/wilmion/Foxbel-Music#readme"
+  "homepage": "https://github.com/wilmion/Foxbel-Music#readme",
+  "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.4",
+    "file-loader": "^6.2.0",
+    "webpack": "^5.35.1",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.5.0",
+    "node-sass": "^5.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "sass-loader": "^11.0.1"
+  }
 }
