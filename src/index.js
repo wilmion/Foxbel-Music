@@ -1,8 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
 
-import FoxbelMusicIcon from './static/icons/foxbel-music-icon.png';
+import Home from './pages/Home';
+
+import "./static/sass/index.scss";
 
 const container = document.getElementById('app');
 
-ReactDOM.render( <img src={FoxbelMusicIcon} alt="test"/> , container )
+ReactDOM.render( <Home /> , container )

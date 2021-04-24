@@ -20,7 +20,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.sass$/,
+                test: /\.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
@@ -34,6 +34,16 @@ module.exports = {
                     options: {
                         name: '[hash].[ext]',
                         outputPath: 'static/images/'
+                    }
+                }
+            },
+            {
+                test: /\.ttf$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[hash].[ext]',
+                        outputPath: 'static/fonts/'
                     }
                 }
             }

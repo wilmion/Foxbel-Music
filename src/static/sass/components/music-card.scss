@@ -1,0 +1,27 @@
+@import "../global/variables.scss";
+
+.music-card {
+  &__image {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__title {
+    margin: 10px 0;
+    color: $gray-secondary;
+    font-weight: 900;
+    font-size: 1.5rem;
+    font-family: "quicksand";
+  }
+  &__autor {
+    color: $gray-primary;
+    margin: 5px 0;
+    font-family: "quicksand";
+    font-weight: 100;
+    font-size: 1.3rem;
+  }
+}
