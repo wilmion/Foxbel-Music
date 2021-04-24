@@ -3,6 +3,9 @@
 .reproductor {
   background-color: $red-princial;
   display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   height: auto;
   justify-content: space-between;
   &-information {

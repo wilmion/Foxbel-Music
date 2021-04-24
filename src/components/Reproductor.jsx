@@ -39,7 +39,7 @@ const Reproductor = () => {
                 </label>
                 <AiFillSound className="reproductor-settings__sound" />
             </section>
-            <audio src={audio} className="reproductor-audio" id="audio-player" autoPlay ></audio>
+            <audio src={audio} className="reproductor-audio" id="audio-player" ></audio>
         </section>
     )
 }

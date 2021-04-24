@@ -1,0 +1,61 @@
+@import "../global/variables.scss";
+.home {
+  &-grid {
+    display: grid;
+    grid-template-columns: 30% 35% 35%;
+    grid-template-rows: repeat(21, 50px);
+    &-nav {
+      grid-column: 1 / 2;
+      grid-row: 1 / span 21;
+      background-color: $red-secondary;
+    }
+    &-header {
+      grid-column: 2/4;
+      grid-row: 1/2;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border: $gray-secondary solid 1px;
+      border-radius: 20px;
+      width: 50%;
+      height: 40px;
+      margin: auto;
+      &__search {
+        border: none;
+        font-family: "quicksand";
+        font-size: 1.3rem;
+        width: 70%;
+        outline: none;
+      }
+      &__icon {
+        font-size: 1.5rem;
+      }
+    }
+    &-information {
+      grid-column: 2/4;
+      grid-row: 2/ 8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__title {
+      grid-column: 2/4;
+      grid-row: 8/9;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      color: $red-princial;
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-left: 3%;
+      font-family: "quicksand";
+    }
+    &-results {
+      grid-column: 2/4;
+      grid-row: 9 / span 21;
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+    }
+  }
+}
