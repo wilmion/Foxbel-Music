@@ -1,0 +1,24 @@
+{
+  "name": "foxbelmusic",
+  "version": "1.0.0",
+  "description": "App de musica de una prueba tecnica",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilmion/Foxbel-Music.git"
+  },
+  "keywords": [
+    "Prueba",
+    "musica",
+    "app"
+  ],
+  "author": "Wilbert Aldair <wilmion92@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wilmion/Foxbel-Music/issues"
+  },
+  "homepage": "https://github.com/wilmion/Foxbel-Music#readme"
+}
