@@ -1,0 +1,100 @@
+@import "../global/variables.scss";
+
+.album-information {
+  display: flex;
+  width: 100%;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToOYpvdkYPTS2R5K7Q08HMHodT0scbpWHv7Q&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: cover;
+  &__image {
+    width: 30%;
+    &--icon {
+      color: $color-claro;
+      position: absolute;
+      font-size: 15rem;
+      margin-left: 9%;
+      margin-top: 9%;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  &-information {
+    background-color: rgba($red-princial, $alpha: 0.5);
+    width: 70%;
+    color: $color-claro;
+    padding: 20px 40px;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    &__title {
+      color: inherit;
+      font-size: 2.9rem;
+      margin-bottom: 5px;
+      font-weight: 700;
+      font-family: "quicksand";
+    }
+    &-indicators {
+      display: flex;
+      margin: 0 0 15px;
+      &__subtitle {
+        color: inherit;
+        font-weight: 100;
+        font-size: 1.7rem;
+        font-family: "quicksand";
+      }
+      &__followers {
+        color: $red-secondary;
+        font-family: "quicksand";
+        font-size: 1.3rem;
+        margin-top: auto;
+        font-weight: 100;
+        margin-left: 20px;
+      }
+    }
+    &__desc {
+      font-size: 1.4rem;
+      color: $color-claro;
+      margin: 5px 0 auto;
+      line-height: 30px;
+      font-family: "quicksand";
+    }
+    &-buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 25px;
+      width: 50%;
+      &-button {
+        border-radius: 70px;
+        padding: 10px 50px;
+        font-family: "quicksand";
+        font-size: 1.5rem;
+        cursor: pointer;
+        &--background {
+          background-color: $red-princial;
+          color: $color-claro;
+          border: none;
+        }
+        &--none-background {
+          background: none;
+          border: $red-princial solid 1px;
+          color: $red-princial;
+        }
+      }
+      &__more {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &--point {
+          background-color: $color-claro;
+          width: 7px;
+          height: 7px;
+          margin: 0 3px;
+          border-radius: 100%;
+        }
+      }
+    }
+  }
+}
