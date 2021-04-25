@@ -28,7 +28,8 @@
         outline: none;
       }
       &__icon {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+        cursor: pointer;
       }
     }
     &-information {
@@ -58,6 +59,16 @@
       display: grid;
       grid-template-columns: repeat(5, 170px);
       gap: 10px;
+      &__not_results {
+        font-size: 2rem;
+        color: $gray-secondary;
+        font-family: "quicksand";
+        font-weight: 700;
+        text-align: center;
+        margin: 20px 0;
+        grid-column: 1/6;
+        width: 100%;
+      }
     }
   }
 }

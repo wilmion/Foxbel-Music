@@ -1,7 +1,7 @@
 import React , { useEffect, useState } from 'react';
 
 import { AiFillPlayCircle , AiFillPauseCircle , AiFillSound } from 'react-icons/ai';
-import { MdSkipNext } from 'react-icons/md'
+import { MdSkipNext } from 'react-icons/md';
 import { GoMute } from 'react-icons/go';
 
 import FoxbelMusicIconWhite from '../static/icons/foxbel-music-white-icon.png';
@@ -43,7 +43,7 @@ const Reproductor = ({album , music , tracks}) => {
         const audioPlayer = document.querySelector('audio');
         
         if(audioPlayer.duration == audioPlayer.currentTime) {
-            if( index + 1 <= tracksPlayed.length) {
+            if( index + 1 < tracksPlayed.length) {
                 setIndex(index + 1)
                 setMusicTracking(tracksPlayed[index + 1].preview)
             }else {
@@ -87,11 +87,11 @@ const Reproductor = ({album , music , tracks}) => {
         <section className="reproductor">           
             <div className="reproductor-information">
                 <picture className="reproductor-information__image">
-                    <img src={albumPlayed? albumPlayed.cover_medium : FoxbelMusicIconWhite} alt={`portada de la canción`}/>
+                    <img src={albumPlayed? albumPlayed.cover_medium || albumPlayed.album.cover_medium : FoxbelMusicIconWhite} alt={`portada de la canción`}/>
                 </picture>
                 <div className="reproductor-information-details">
                 <h3 className="reproductor-information-details__music">{tracksPlayed ? tracksPlayed[index].title : 'No seleccionado'}</h3>
-                <h4 className="reproductor-information-details__artis-albm">{albumPlayed ? albumPlayed.artist.name : 'No seleccionado'} - {albumPlayed? albumPlayed.title : 'No seleccionado'}</h4>
+                <h4 className="reproductor-information-details__artis-albm">{albumPlayed ? albumPlayed.artist.name : 'No seleccionado'} - {albumPlayed? albumPlayed.type === "track" ? albumPlayed.album.title : albumPlayed.title : 'No seleccionado'}</h4>
                 </div>
                 
             </div>
@@ -107,6 +107,7 @@ const Reproductor = ({album , music , tracks}) => {
                      type="range" 
                      name="control-sound" 
                      id="control-sound"
+                     value={volumen*100}
                      min="0"
                      max="100"
                      onInput={onChange}

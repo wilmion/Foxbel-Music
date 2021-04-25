@@ -4,7 +4,8 @@ import Navigation from '../components/Navigation';
 import MusicCard from '../components/MusicCard';
 import Reproductor from '../components/Reproductor';
 import InformationAlbum from '../components/InformationAlbum';
-import { FaSearch } from 'react-icons/fa'
+import { FaSearch } from 'react-icons/fa';
+import Loading from '../components/Loading';
 
 import { GET } from '../utils/API';
 
@@ -12,14 +13,16 @@ import "../static/sass/pages/home.scss"
 
 const Home = () => {
 
-    const [ albums , setAlbums ] = useState([])
+    const [ albums , setAlbums ] = useState([]);
+    const [ results , setResults ] = useState([]);
     const [ selectedAlbum , setSelectedAlbum ] = useState(null);
     const [ selectedTracks , setSelectedTracks ] = useState(null);
+    const [ loading , setLoading ] = useState(false);
 
     useEffect(() => { 
         const fetchData = async () => {
+            setLoading(true);
             const num = Math.floor(Math.random() * 4);
-            console.log(num);
             let letter;
             switch(num) {
                 case 0:
@@ -47,11 +50,31 @@ const Home = () => {
                 return null
             }
             setAlbums(api.data);
+            setResults(api.data);
+            setLoading(false);
         }
         fetchData();
     } , [])
 
-    console.log(albums)
+    const handleSearch = async () => {
+        setLoading(true)
+        setResults([]);
+        const value = document.querySelector('#search_music').value;
+
+        if(value === ''){
+            setResults(albums);
+        }
+
+        const [ searchApi , err ] = await GET(`https://api.deezer.com/search?q=${value}&limit=5`);
+        const [ albumApi , errAlbm ] = await GET(`https://api.deezer.com/search/album/?q=${value}&limit=5&output=json`);
+
+        if(err || errAlbm) {
+            return null;
+        }
+        setResults([...searchApi.data , ...albumApi.data]);
+        setLoading(false);
+        
+    }
 
     return (
         <section className="home">
@@ -61,8 +84,14 @@ const Home = () => {
                     <Navigation />
                 </div>     
                 <div className="home-grid-header">
-                    <input type="text" placeholder="Buscar" className="home-grid-header__search"/>
-                    <FaSearch className="home-grid-header__icon" />
+                    <input
+                        type="text" 
+                        id="search_music" 
+                        onKeyUp={(e) => {e.key.toLowerCase() === 'enter' && handleSearch()}} 
+                        placeholder="Buscar" 
+                        className="home-grid-header__search"
+                    />
+                    <FaSearch onClick={handleSearch} className="home-grid-header__icon" />
                 </div>
                 <div className="home-grid-information">
                     <InformationAlbum album={selectedAlbum} onReproduction={(tracks) => setSelectedTracks(tracks)} />
@@ -70,9 +99,9 @@ const Home = () => {
                 
                 <h2 className="home-grid__title">Resultados</h2>
                 <section className="home-grid-results">
-                    {albums.map(a => (
+                    {results.map(a => (
                         <MusicCard
-                         image={a.cover_medium} 
+                         image={a.cover_medium ||a.album.cover_medium } 
                          title={a.title} 
                          autor={a.artist.name} 
                          key={a.id} 
@@ -80,6 +109,8 @@ const Home = () => {
                          album={a} 
                         />    
                     ))}
+                    {(results.length === 0 && !loading) && <h5 className="home-grid-results__not_results">Ninguna canción o album coincide con su busqueda </h5> }
+                    {loading && <Loading />}
                 </section>
             </section>      
         </section>
