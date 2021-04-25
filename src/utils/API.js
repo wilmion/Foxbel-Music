@@ -4,7 +4,11 @@ export const GET = async (url) => {
     let error = null;
     let data = null;
     try {
-        const dataApi = await axios.get(`https://cors-anywhere.herokuapp.com/${url}`);
+        const dataApi = await axios.get(url , {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        });
         data = dataApi.data;
     }catch (e) {
         error = 'Hubo un error al pedir los datos , por favor recarge la pagina'

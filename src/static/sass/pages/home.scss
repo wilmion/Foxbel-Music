@@ -15,21 +15,29 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      border: $gray-secondary solid 1px;
-      border-radius: 20px;
-      width: 50%;
-      height: 40px;
-      margin: auto;
-      &__search {
-        border: none;
-        font-family: "quicksand";
-        font-size: 1.3rem;
-        width: 70%;
-        outline: none;
+      &-search {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border: $gray-secondary solid 1px;
+        border-radius: 20px;
+        width: 50%;
+        height: 40px;
+        margin: auto;
+        &__search {
+          border: none;
+          font-family: "quicksand";
+          font-size: 1.3rem;
+          width: 70%;
+          outline: none;
+        }
+        &__icon {
+          font-size: 1.6rem;
+          cursor: pointer;
+        }
       }
-      &__icon {
-        font-size: 1.6rem;
-        cursor: pointer;
+      &-homeIcon {
+        display: none;
       }
     }
     &-information {
@@ -71,11 +79,18 @@
     }
   }
 }
+.navigation-home-cellphone {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  transform: translateX(-100%);
+  transition: 1s;
+}
 @media screen and (max-width: 700px) {
   .home {
     &-grid {
       grid-template-columns: 100%;
-      grid-template-rows: repeat(64, 60px);
+      grid-template-rows: repeat(67, 60px);
       margin-bottom: 150px;
       &-nav {
         display: none;
@@ -86,19 +101,33 @@
       &-header {
         grid-column: 1/2;
         grid-row: 1/2;
-        width: 90%;
+        &-search {
+          width: 80%;
+        }
+        &-homeIcon {
+          width: 20px;
+          height: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 10px;
+          &--icon {
+            font-size: 3.5rem;
+            color: $red-princial;
+          }
+        }
       }
       &-information {
         grid-column: 1/2;
-        grid-row: 2/ 14;
+        grid-row: 4/ 16;
       }
       &__title {
         grid-column: 1/2;
-        grid-row: 14/15;
+        grid-row: 16/17;
       }
       &-results {
         grid-column: 1/2;
-        grid-row: 15 / 65;
+        grid-row: 17 / 67;
         width: 200px;
         margin: 0 auto;
         grid-template-columns: 200px;
@@ -109,6 +138,9 @@
         }
       }
     }
+  }
+  .navigation-home-cellphone {
+    display: block;
   }
 }
 @media (min-width: 700px) and (max-width: 1300px) {
