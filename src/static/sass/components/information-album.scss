@@ -97,3 +97,92 @@
     }
   }
 }
+@media screen and (max-width: 700px) {
+  .album-information {
+    flex-direction: column;
+    max-width: 450px;
+    &__image {
+      width: 100%;
+      &--icon {
+        color: $color-claro;
+        position: absolute;
+        font-size: 13rem;
+        margin-left: 20%;
+        margin-top: 20%;
+      }
+    }
+    &-information {
+      width: 100%;
+      &__desc {
+        font-size: 1.2rem;
+      }
+      &-buttons {
+        width: 100%;
+        margin: 10px 0;
+        &-button {
+          padding: 5px 20px;
+          font-size: 1.3rem;
+        }
+        &__more {
+          &--point {
+            width: 5px;
+            height: 5px;
+            margin: 0 2px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 700px) and (max-width: 1200px) {
+  .album-information {
+    width: 95%;
+    &__image {
+      width: 40%;
+      &--icon {
+        font-size: 15rem;
+        margin-left: 5%;
+        margin-top: 5%;
+      }
+    }
+    &-information {
+      width: 60%;
+      padding: 10px 20px;
+      &__title {
+        font-size: 2rem;
+      }
+      &-indicators {
+        margin: 0 0 10px;
+        &__subtitle {
+          font-size: 1.3rem;
+        }
+        &__followers {
+          font-size: 1rem;
+        }
+      }
+      &__desc {
+        font-size: 1.1rem;
+        line-height: 20px;
+      }
+      &-buttons {
+        width: 100%;
+        &-button {
+          padding: 5px 20px;
+          font-size: 1.2rem;
+          margin: 5px 0;
+        }
+        &__more {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          &--point {
+            width: 3px;
+            height: 3px;
+            margin: 0 1px;
+          }
+        }
+      }
+    }
+  }
+}

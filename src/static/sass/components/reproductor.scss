@@ -10,11 +10,12 @@
   justify-content: space-between;
   &-information {
     display: flex;
-    width: 25%;
+    width: 40%;
     &__image {
       width: 100px;
       height: 100px;
       margin: 0;
+      background-color: $color-claro;
       img {
         width: 100%;
         height: auto;
@@ -22,6 +23,7 @@
     }
     &-details {
       margin-left: 20px;
+      width: 80%;
       &__music {
         color: $color-claro;
         font-family: "quicksand";
@@ -105,5 +107,92 @@
   &-audio {
     width: 0;
     height: 0;
+  }
+}
+@media screen and (max-width: 700px) {
+  .reproductor {
+    &-information {
+      width: 40%;
+      max-width: 100px;
+      &__image {
+        width: 100%;
+        height: auto;
+      }
+      &-details {
+        margin-left: 10px;
+        width: 60%;
+        &__music {
+          font-size: 1.1rem;
+          margin-top: 3px;
+          margin-bottom: 1px;
+        }
+        &__artis-albm {
+          font-size: 1rem;
+        }
+      }
+    }
+    &-controls {
+      width: 30%;
+      &__skipButton {
+        font-size: 2rem;
+      }
+      &__play {
+        font-size: 3rem;
+      }
+    }
+    &-settings {
+      width: 20%;
+      &__input {
+        width: 90%;
+        border-radius: 20px;
+        appearance: none;
+        &::-webkit-slider-runnable-track {
+          height: 3px;
+        }
+        &::-webkit-slider-thumb {
+          width: 10px;
+          height: 10px;
+          margin-top: -3px;
+        }
+        &::-moz-range-thumb {
+          width: 10px;
+          height: 10px;
+          margin-top: -3px;
+        }
+        &::-ms-thumb {
+          width: 10px;
+          height: 10px;
+          margin-top: -3px;
+        }
+      }
+      &__sound {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+@media (min-width: 1600px) {
+  .reproductor {
+    &-information {
+      display: flex;
+      width: 40%;
+      &__image {
+        width: 150px;
+        height: 150px;
+      }
+      &-details {
+        overflow: scroll;
+        width: 70%;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        &__music {
+          font-size: 1.8rem;
+        }
+        &__artis-albm {
+          font-size: 1.5rem;
+        }
+      }
+    }
   }
 }

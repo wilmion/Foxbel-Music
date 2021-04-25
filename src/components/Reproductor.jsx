@@ -90,8 +90,8 @@ const Reproductor = ({album , music , tracks}) => {
                     <img src={albumPlayed? albumPlayed.cover_medium || albumPlayed.album.cover_medium : FoxbelMusicIconWhite} alt={`portada de la canción`}/>
                 </picture>
                 <div className="reproductor-information-details">
-                <h3 className="reproductor-information-details__music">{tracksPlayed ? tracksPlayed[index].title : 'No seleccionado'}</h3>
-                <h4 className="reproductor-information-details__artis-albm">{albumPlayed ? albumPlayed.artist.name : 'No seleccionado'} - {albumPlayed? albumPlayed.type === "track" ? albumPlayed.album.title : albumPlayed.title : 'No seleccionado'}</h4>
+                <h3 className="reproductor-information-details__music">{tracksPlayed ? tracksPlayed[index].title : 'None'}</h3>
+                <h4 className="reproductor-information-details__artis-albm">{albumPlayed ? albumPlayed.artist.name : 'None'} - {albumPlayed? albumPlayed.type === "track" ? albumPlayed.album.title : albumPlayed.title : 'None'}</h4>
                 </div>
                 
             </div>
