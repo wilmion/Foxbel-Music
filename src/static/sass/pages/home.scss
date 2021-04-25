@@ -3,10 +3,10 @@
   &-grid {
     display: grid;
     grid-template-columns: 30% 35% 35%;
-    grid-template-rows: repeat(21, 50px);
+    grid-template-rows: repeat(24, 50px);
     &-nav {
       grid-column: 1 / 2;
-      grid-row: 1 / span 21;
+      grid-row: 1 / span 24;
       background-color: $red-secondary;
     }
     &-header {
@@ -52,10 +52,12 @@
     }
     &-results {
       grid-column: 2/4;
-      grid-row: 9 / span 21;
-      width: 90%;
+      grid-row: 9 / 22;
+      width: 95%;
       margin: 0 auto;
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(5, 170px);
+      gap: 10px;
     }
   }
 }
