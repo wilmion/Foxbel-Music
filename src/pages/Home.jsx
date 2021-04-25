@@ -47,7 +47,7 @@ const Home = () => {
                     break;
             }
 
-            const [api , err]= await GET(`https://api.deezer.com/search/album/?q=${letter}&limit=10&output=json`);
+            const [api , err]= await GET(`https://api.deezer.com/search/album/?q=${letter}&limit=10&output=jsonp`);
             if(err) {
                 return null
             }
@@ -68,8 +68,8 @@ const Home = () => {
             setLoading(false)
         }
 
-        const [ searchApi , err ] = await GET(`https://api.deezer.com/search?q=${value}&limit=5`);
-        const [ albumApi , errAlbm ] = await GET(`https://api.deezer.com/search/album/?q=${value}&limit=5&output=json`);
+        const [ searchApi , err ] = await GET(`https://api.deezer.com/search?q=${value}&limit=5&output=jsonp`);
+        const [ albumApi , errAlbm ] = await GET(`https://api.deezer.com/search/album/?q=${value}&limit=5&output=jsonp`);
 
         if(err || errAlbm) {
             return null;

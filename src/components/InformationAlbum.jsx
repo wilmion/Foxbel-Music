@@ -15,8 +15,8 @@ const InformationAlbum = ({album , onReproduction}) => {
             setTracks(null);
             setArtist(null);
 
-            const [artistApi , err] = await GET(`https://api.deezer.com/artist/${album.artist.id}`);
-            const [tracksApi , errT] = await GET(album.tracklist);
+            const [artistApi , err] = await GET(`https://api.deezer.com/artist/${album.artist.id}?output=jsonp`);
+            const [tracksApi , errT] = await GET(`${album.tracklist}?output=jsonp`);
 
             setArtist(artistApi)
             setTracks(tracksApi.data);
